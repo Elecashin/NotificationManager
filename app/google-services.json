@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "942452784800",
+    "project_id": "notificationmana-efa55",
+    "storage_bucket": "notificationmana-efa55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942452784800:android:c4d3a01a06b8b7eeb453c5",
+        "android_client_info": {
+          "package_name": "com.example.notificationmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942452784800-s1btormt68a3ni66tft41rkhr20k5ogs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2LxNVGBdVqdd9a8dI6KSM82wkLJPQW7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942452784800-s1btormt68a3ni66tft41rkhr20k5ogs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

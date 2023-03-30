@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         filter.addAction("com.example.notificationmanager.NOTIFICATION_LISTENER_APP");
         registerReceiver(nReceiver,filter)
 
+
     }
 
     override fun onResume() {
