@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             val title = intent.getStringExtra("title")
             val id = intent.getIntExtra("id", 0)
             CoroutineScope(Dispatchers.Default).launch {
-                notificationSender.sendNotification(id, title ?: "", text ?: "", packageName ?: "")
+                notificationSender.sendNotification(context, id, title ?: "", text ?: "", packageName ?: "")
             }
         }
     }

@@ -6,12 +6,15 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import android.util.Log
+import android.text.TextUtils
 
 
 class MyNotificationListenerService : NotificationListenerService() {
     private val TAG = this.javaClass.simpleName
     private var nlservicereciver: NLServiceReceiver? = null
+    private val mPreviousNotificationKey: String? = null
+    private var mPreviousNotification: StatusBarNotification? = null
+
     override fun onCreate() {
         super.onCreate()
         nlservicereciver = NLServiceReceiver()
@@ -26,14 +29,20 @@ class MyNotificationListenerService : NotificationListenerService() {
     }
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
-        val i = Intent("com.example.notificationmanager.NOTIFICATION_LISTENER_APP")
-        i.putExtra("package_name",sbn.packageName)
-        i.putExtra("text", sbn.notification.extras.getString("android.text"))
-        i.putExtra("title", sbn.notification.extras.getString("android.title"))
-        i.putExtra("id", sbn.id)
 
-        sendBroadcast(i)
+        if(TextUtils.isEmpty(mPreviousNotification.toString()) || !TextUtils.isEmpty(mPreviousNotification.toString()) && !sbn.key.equals(mPreviousNotificationKey)) {
+            val i = Intent("com.example.notificationmanager.NOTIFICATION_LISTENER_APP")
+            i.putExtra("package_name",sbn.packageName)
+            i.putExtra("text", sbn.notification.extras.getString("android.text"))
+            i.putExtra("title", sbn.notification.extras.getString("android.title"))
+            i.putExtra("id", sbn.id)
+
+            sendBroadcast(i)
+        }
+
     }
+
+
 
 
 

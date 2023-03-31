@@ -14,10 +14,10 @@ class NotificationSender {
 
     private val clientAuth = HttpClient(OkHttp)
 
-    suspend fun sendNotification(id : Int, title : String, text : String, packageName : String) : Boolean{
-            try {
+    suspend fun sendNotification(context : Context, id : Int, title : String, text : String, packageName : String) : Boolean{
+//            try {
 
-                val toSend = JSONObject().put("id", id).put("title", title).put("text", text).put("packageName", packageName)
+                val toSend = JSONObject().put("id", id).put("title", title).put("text", text).put("packageName", packageName).put("device", Settings.Global.getString(context.contentResolver, "device_name"))
                 println(toSend.toString())
                 val resultAsString = clientAuth.post(
                     "http://" +
@@ -29,10 +29,10 @@ class NotificationSender {
                 println(resultAsString)
 
                 return resultAsString== HttpStatusCode.OK
-            }catch (e : Exception){
-
-            }
-        return false
+//            }catch (e : Exception){
+//
+//            }
+//        return false
 
 
     }
